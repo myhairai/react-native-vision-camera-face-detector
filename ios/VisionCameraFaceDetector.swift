@@ -226,22 +226,22 @@ public class VisionCameraFaceDetector: FrameProcessorPlugin {
     return faceContoursTypesMap
   }
 
-  func getOrientation(
+ func getOrientation(
     orientation: UIImage.Orientation
   ) -> UIImage.Orientation {
     switch orientation {
       case .up:
         // device is landscape left
-        return .up
+        return .up 
       case .left:
       // device is portrait
-        return .right
+        return .up // .right
       case .down:
         // device is landscape right
-        return .down
+        return .up // .down
       case .right:
         // device is upside-down
-        return .left
+        return .up // .left
       default:
         return .up
     }
@@ -310,7 +310,7 @@ public class VisionCameraFaceDetector: FrameProcessorPlugin {
           from: face,
           sourceWidth: width,
           sourceHeight: height,
-          orientation: frame.orientation,
+          orientation: orientation, // frame.orientation,
           scaleX: scaleX,
           scaleY: scaleY
         )
